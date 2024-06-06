@@ -21,6 +21,7 @@
 	height: 190px;
 	width: 200px;
 	overflow: hidden;
+	border-radius: 10px 50px;
 	border: solid;
 	margin-bottom: 8px;
 	background-color: black;
