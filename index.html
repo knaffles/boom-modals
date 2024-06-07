@@ -1,8 +1,6 @@
 <html>
 <head>
-	<script src="mt.js"></script>
 	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="artists.css">
 </head>
 <body>
 <div class="wrapper style5">
@@ -13,6 +11,11 @@
 		<script src="/theme/common/js/mt.js"></script>
 
 		<link rel="stylesheet" href="/theme/common/css/artists.css"> -->
+		
+		<script src="mt.js"></script>
+		<link rel="stylesheet" href="artists.css">
+		<link rel="stylesheet" href="dialogs.css">
+
 
 		<h4>These amazing artists have generously donated wonderful artwork to decorate our youth-built boomboxes. </h4>
 
@@ -25,12 +28,25 @@
 		
 		<template id="artist">
 			<span class="art-item">
-				<a target="_blank" href="{{LINK}}">
+				<button type="button" data-a11y-dialog-show="boom-dialog" data-link="{{LINK}}" class="artist-dialog-button" aria-label="Click to leanr more about {{NAME}}" data-dialog-name="{{NAME}}">
 					<div class="img-clip">
 						<img loading="lazy" onmouseenter="this.style.animation='idle'" src="/data/uploads/photos/people/artists/{{IMG}}" alt="">
 					</div>
 					<div class="caption">{{NAME}}</div>
-				</a>
+
+					<div class="dialog-dynamic-content">
+						<div class="artist-dialog">
+							<div class="artist-dialog__bg" style="background-image: url({{ART_IMAGE}})">
+								<div class="img-clip artist-dialog__photo">
+									<img src="/data/uploads/photos/people/artists/{{IMG}}" />
+								</div>
+							</div>
+							<h1 class="artist-dialog__name" id="dialog-title">{{NAME}}</h1>
+							<p class="artist-dialog__link"><a href="{{LINK}}">{{LINK}}</a></p>
+							<p class="artist-dialog__bio">{{BIO}}</p>
+						</div>
+					</div>
+				</button>
 			</span>
 		</template>
 		
@@ -45,6 +61,8 @@
 			NAME
 			IMG
 			LINK
+			ART_IMAGE
+			BIO
 		</mt-fields>
 
 
@@ -54,6 +72,8 @@
 			Elisa Sassi
 			elisa-sassi-bike-crop.jpg
 			https://elisasassi.com
+			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
 			
 			Sirron Norris
 			sirron-crop.jpg
@@ -98,6 +118,23 @@
 
 	</mt-recordsets>
 
-</div></div>
+	<div class="dialog-container" id="boom-dialog" aria-hidden="true" aria-labelledby="dialog-title">
+		<div class="dialog-overlay" data-a11y-dialog-hide></div>
+		<div class="dialog-content" role="document">
+			<button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">
+				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" overflow="visible" stroke="black" stroke-width="10" stroke-linecap="round">
+					<line x2="50" y2="50" />
+					<line x1="50" y2="50" />
+				</svg>
+			</button>
+			<div class="dialog-inner-content"></div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/a11y-dialog@8/dist/a11y-dialog.min.js"></script>
+	<script src="dialogs.js"></script>
+
+
+</div>
+</div>
 </body>
 </html>

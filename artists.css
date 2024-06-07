@@ -36,7 +36,97 @@
 .caption {
 	background: lightgoldenrodyellow;
 	width: 200px;
+	border-radius: 10px;
 	border: solid;
 	padding: 4px;
 	}
-	
+ 
+/*-- Artist Dialogs --*/
+
+.artist-dialog-button {
+	appearance:none;
+	background: transparent;
+	border-radius: unset;
+	border: 0;
+	box-shadow: none !important;
+	color: unset;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: unset;
+	height: auto;
+	letter-spacing: unset;
+	line-height: unset;
+	margin: 0;
+	overflow: visible;
+	padding: 0;
+	text-align: unset;
+	text-transform: none;
+	transition: none;
+	white-space: unset;
+	width: auto;
+
+	&:hover, &:focus {
+		background-color: transparent !important;
+	}
+}
+
+.artist-dialog__bg {
+  background-size: cover;
+  padding: 2.25em;
+  position: relative;
+
+  &:after {
+    content: '';
+    background: rgba(255,255,255,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+}
+
+@media screen and (max-width:640px) {
+  .artist-dialog__bg {
+    padding: 1.25em;
+  }
+}
+
+.artist-dialog__photo {
+  position: relative;
+  z-index: 20;
+  margin-left: auto;
+
+  img {
+    max-width: 100%;
+  }
+
+	&.img-clip {
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (max-width:640px) {
+  .artist-dialog__photo.img-clip {
+    width: 100px;
+    height: 85px;
+    border-radius: 5px 25px;
+  }
+}
+
+.artist-dialog__name {
+  color: unset;
+  margin-top: 1em;
+}
+
+.artist-dialog__link {
+  font-weight: normal;
+  margin-bottom: 0.5em;
+}
+
+.artist-dialog__bio {
+  font-weight: normal
+}
