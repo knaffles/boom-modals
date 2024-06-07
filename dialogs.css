@@ -11,10 +11,15 @@
 .dialog-container {
   z-index: 2; 
   display: flex;
-}
- 
-.dialog-container[aria-hidden='true'] {
-  display: none;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
  
 .dialog-overlay {
@@ -93,10 +98,6 @@
     top: 1em;
     right: 1em;
   }
-}
-
-.dialog-dynamic-content {
-  display:none;
 }
 
 .dialog-inner-content {

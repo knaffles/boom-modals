@@ -42,33 +42,8 @@
 	}
  
 /*-- Artist Dialogs --*/
-
-.artist-dialog-button {
-	appearance:none;
-	background: transparent;
-	border-radius: unset;
-	border: 0;
-	box-shadow: none !important;
-	color: unset;
-	display: block;
-	font-family: inherit;
-	font-size: 16px;
-	font-weight: unset;
-	height: auto;
-	letter-spacing: unset;
-	line-height: unset;
-	margin: 0;
-	overflow: visible;
-	padding: 0;
-	text-align: unset;
-	text-transform: none;
-	transition: none;
-	white-space: unset;
-	width: auto;
-
-	&:hover, &:focus {
-		background-color: transparent !important;
-	}
+.artist-dialog {
+	text-align: left;
 }
 
 .artist-dialog__bg {
@@ -86,7 +61,6 @@
     height: 100%;
     z-index: 10;
   }
-
 }
 
 @media screen and (max-width:640px) {
