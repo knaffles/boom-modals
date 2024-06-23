@@ -16,5 +16,3 @@ if (element) {
     dialogContent.innerHTML = dynamicContent.innerHTML
   })
 }
-
-

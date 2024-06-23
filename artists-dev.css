@@ -2,20 +2,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	}
-
+}
 
 .art-item {
 	text-align: center;
 	width: 250px;
 	margin-bottom: 30px;	
-	}
-
+}
 
 .art-item a {
 	text-decoration: none;
-	}
-
+}
 
 .img-clip {
 	height: 190px;
@@ -25,13 +22,17 @@
 	border: solid;
 	margin-bottom: 8px;
 	background-color: black;
-	}
+	transition: all .2s ease-in-out;
+}
 
+.img-clip:hover {
+	border-color: lightskyblue;
+	transform: scale(1.08);
+}
 
 .art-item img {
 	width: 200px;
-	}
-
+}
 
 .caption {
 	background: lightgoldenrodyellow;
@@ -39,7 +40,7 @@
 	border-radius: 10px;
 	border: solid;
 	padding: 4px;
-	}
+}
  
 /*-- Artist Dialogs --*/
 
@@ -86,7 +87,6 @@
     height: 100%;
     z-index: 10;
   }
-
 }
 
 @media screen and (max-width:640px) {
@@ -100,12 +100,17 @@
   z-index: 20;
   margin-left: auto;
 
-  img {
+  & img {
     max-width: 100%;
   }
 
 	&.img-clip {
 		margin-bottom: 0;
+	}
+	
+	&.img-clip:hover {
+		border-color: initial;
+		transform: none;
 	}
 }
 

@@ -1,160 +1,134 @@
-<html>
-<head>
-	<link rel="stylesheet" href="main.css">
-</head>
-<body>
-<div class="wrapper style5">
-<div class="inner">
+<script src="/theme/common/js/mt.js"></script>
+<link rel="stylesheet" href="/theme/Spectral/assets/css/artists-dev.css">
+<link rel="stylesheet" href="/theme/Spectral/assets/css/dialogs-dev.css">
 
+<h4>These amazing artists have generously donated wonderful artwork to decorate our youth-built boomboxes. </h4>
 
-<!-- 
-		<script src="/theme/common/js/mt.js"></script>
+<!-- ------------ SINGLES CONTAINER  ----------------- -->
+<mt-container mt-records="artists-recs" mt-template="artist" class="art-items"></mt-container>			
 
-		<link rel="stylesheet" href="/theme/common/css/artists.css"> -->
-		
-		<script src="mt.js"></script>
-		<link rel="stylesheet" href="artists.css">
-		<link rel="stylesheet" href="dialogs.css">
+<!-------------- TEMPLATES ------------------>
+<mt-templates>
+	<template id="artist">
+		<span class="art-item">
+			<button type="button" data-a11y-dialog-show="boom-dialog" class="artist-dialog-button" aria-label="Click to learn more about {{NAME}}">
+				<div class="img-clip">
+					<img loading="lazy" onmouseenter="this.style.animation='idle'" src="/data/uploads/photos/people/artists/{{IMG}}" alt="">
+				</div>
+				<div class="caption">{{NAME}}</div>
 
-
-		<h4>These amazing artists have generously donated wonderful artwork to decorate our youth-built boomboxes. </h4>
-
-		<!-- ------------ SINGLES CONTAINER  ----------------- -->
-		<mt-container mt-records="artists-recs" mt-template="artist" class="art-items"></mt-container>			
-
-
-	<!-------------- TEMPLATES ------------------>
-	<mt-templates>
-		
-		<template id="artist">
-			<span class="art-item">
-				<button type="button" data-a11y-dialog-show="boom-dialog" class="artist-dialog-button" aria-label="Click to learn more about {{NAME}}">
-					<div class="img-clip">
-						<img loading="lazy" onmouseenter="this.style.animation='idle'" src="/data/uploads/photos/people/artists/{{IMG}}" alt="">
-					</div>
-					<div class="caption">{{NAME}}</div>
-
-					<div class="dialog-dynamic-content">
-						<div class="artist-dialog">
-							<div class="artist-dialog__bg" style="background-image: url({{ART_IMAGE}})">
-								<div class="img-clip artist-dialog__photo">
-									<img src="/data/uploads/photos/people/artists/{{IMG}}" />
-								</div>
+				<div class="dialog-dynamic-content">
+					<div class="artist-dialog">
+						<div class="artist-dialog__bg" style="background-image: url({{ART_IMAGE}})">
+							<div class="img-clip artist-dialog__photo">
+								<img src="/data/uploads/photos/people/artists/{{IMG}}" />
 							</div>
-							<h1 class="artist-dialog__name" id="dialog-title">{{NAME}}</h1>
-							<p class="artist-dialog__link"><a href="{{LINK}}">{{LINK}}</a></p>
-							<p class="artist-dialog__bio">{{BIO}}</p>
 						</div>
+						<h1 class="artist-dialog__name" id="dialog-title">{{NAME}}</h1>
+						<p class="artist-dialog__link"><a href="{{LINK}}">{{LINK}}</a></p>
+						<p class="artist-dialog__bio">{{BIO}}</p>
 					</div>
-				</button>
-			</span>
-		</template>
-		
-	</mt-templates>
-
-	
-	<!-------------- RECORDS ------------------>
-	<mt-recordsets hidden>
-		
-		<!-- SCHEMA -->
-		<mt-fields id="artist-fields">
-			NAME
-			IMG
-			LINK
-			ART_IMAGE
-			BIO
-		</mt-fields>
-
-
-		<!-- RECORDSET -->
-		<mt-records id="artists-recs" mt-fields="artist-fields">
-
-			Elisa Sassi
-			elisa-sassi-bike-crop.jpg
-			https://elisasassi.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Sirron Norris
-			sirron-crop.jpg
-			http://www.sirronnorris.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Khang Le Schoenthal
-			khang.jpg
-			https://khangle.webflow.io
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Nigel Sussman
-			Nigel Sussman.jpg
-			https://www.nigelsussman.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Ador & Semor
-			ador-semor-crop-3.jpg
-			https://thesemor.tumblr.com/Ador&Semor
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Kelly Koehler-Gorman
-			kelly-koehler-gorman.jpg
-			https://www.instagram.com/knkknk
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Ivan Lopez
-			ivan-lopez-crop.jpg
-			http://www.ilcolors.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Mario Cid
-			mario-cid.png
-			https://www.instagram.com/cid_mario
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Orlie Kapitulnik
-			orliek-crop-2.jpg
-			http://www.orliek.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Genevieve Dupre
-			genevieve-dupre-crop.jpg
-			https://www.genevievetattoos.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-			
-			Joey Armstrong
-			joey-armstrong-crop-1.jpg
-			https://thunderhandtattoo.com
-			https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
-			This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
-		</mt-records>
-
-	</mt-recordsets>
-
-	<div class="dialog-container" id="boom-dialog" aria-hidden="true" aria-labelledby="dialog-title">
-		<div class="dialog-overlay" data-a11y-dialog-hide></div>
-		<div class="dialog-content" role="document">
-			<button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">
-				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" overflow="visible" stroke="black" stroke-width="10" stroke-linecap="round">
-					<line x2="50" y2="50" />
-					<line x1="50" y2="50" />
-				</svg>
+				</div>
 			</button>
-			<div class="dialog-inner-content"></div>
-		</div>
+		</span>
+	</template>
+</mt-templates>
+
+<!-------------- RECORDS ------------------>
+<mt-recordsets hidden>
+
+	<!-- SCHEMA -->
+	<mt-fields id="artist-fields">
+		NAME
+		IMG
+		LINK
+		ART_IMAGE
+		BIO
+	</mt-fields>
+
+	<!-- RECORDSET -->
+	<mt-records id="artists-recs" mt-fields="artist-fields">
+
+		Elisa Sassi
+		elisa-sassi-bike-crop.jpg
+		https://elisasassi.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Sirron Norris
+		sirron-crop.jpg
+		http://www.sirronnorris.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Khang Le Schoenthal
+		khang.jpg
+		https://khangle.webflow.io
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Nigel Sussman
+		Nigel Sussman.jpg
+		https://www.nigelsussman.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Ador & Semor
+		ador-semor-crop-3.jpg
+		https://thesemor.tumblr.com/Ador&Semor
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Kelly Koehler-Gorman
+		kelly-koehler-gorman.jpg
+		https://www.instagram.com/knkknk
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Ivan Lopez
+		ivan-lopez-crop.jpg
+		http://www.ilcolors.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Mario Cid
+		mario-cid.png
+		https://www.instagram.com/cid_mario
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Orlie Kapitulnik
+		orliek-crop-2.jpg
+		http://www.orliek.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Genevieve Dupre
+		genevieve-dupre-crop.jpg
+		https://www.genevievetattoos.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+		
+		Joey Armstrong
+		joey-armstrong-crop-1.jpg
+		https://thunderhandtattoo.com
+		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
+		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
+	</mt-records>
+
+</mt-recordsets>
+
+<div class="dialog-container" id="boom-dialog" aria-hidden="true" aria-labelledby="dialog-title">
+	<div class="dialog-overlay" data-a11y-dialog-hide></div>
+	<div class="dialog-content" role="document">
+		<button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">
+			<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" overflow="visible" stroke="black" stroke-width="10" stroke-linecap="round">
+				<line x2="50" y2="50" />
+				<line x1="50" y2="50" />
+			</svg>
+		</button>
+		<div class="dialog-inner-content"></div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/a11y-dialog@8/dist/a11y-dialog.min.js"></script>
-	<script src="dialogs.js"></script>
-
-
 </div>
-</div>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/a11y-dialog@8/dist/a11y-dialog.min.js"></script>
+<script src="/theme/Spectral/assets/js/dialogs-dev.js"></script>
