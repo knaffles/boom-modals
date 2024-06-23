@@ -1,16 +1,16 @@
-.art-items {
+.items {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-.art-item {
+.item {
 	text-align: center;
 	width: 250px;
 	margin-bottom: 30px;	
 }
 
-.art-item a {
+.item a {
 	text-decoration: none;
 }
 
@@ -30,7 +30,7 @@
 	transform: scale(1.08);
 }
 
-.art-item img {
+.item img {
 	width: 200px;
 }
 
@@ -42,9 +42,9 @@
 	padding: 4px;
 }
  
-/*-- Artist Dialogs --*/
+/*-- Image Grid Dialogs --*/
 
-.artist-dialog-button {
+.items-dialog-button {
 	appearance:none;
 	background: transparent;
 	border-radius: unset;
@@ -72,7 +72,7 @@
 	}
 }
 
-.artist-dialog__bg {
+.items-dialog_bg {
   background-size: cover;
   padding: 2.25em;
   position: relative;
@@ -90,12 +90,12 @@
 }
 
 @media screen and (max-width:640px) {
-  .artist-dialog__bg {
+  .items-dialog_bg {
     padding: 1.25em;
   }
 }
 
-.artist-dialog__photo {
+.items-dialog_photo {
   position: relative;
   z-index: 20;
   margin-left: auto;
@@ -115,23 +115,23 @@
 }
 
 @media screen and (max-width:640px) {
-  .artist-dialog__photo.img-clip {
+  .items-dialog_photo.img-clip {
     width: 100px;
     height: 85px;
     border-radius: 5px 25px;
   }
 }
 
-.artist-dialog__name {
+.items-dialog_name {
   color: unset;
   margin-top: 1em;
 }
 
-.artist-dialog__link {
+.items-dialog_link {
   font-weight: normal;
   margin-bottom: 0.5em;
 }
 
-.artist-dialog__bio {
+.items-dialog_body {
   font-weight: normal
 }

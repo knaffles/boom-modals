@@ -1,32 +1,34 @@
 <script src="/theme/common/js/mt.js"></script>
-<link rel="stylesheet" href="/theme/Spectral/assets/css/artists-dev.css">
+<link rel="stylesheet" href="/theme/Spectral/assets/css/image-grid-dev.css">
 <link rel="stylesheet" href="/theme/Spectral/assets/css/dialogs-dev.css">
 
 <h4>These amazing artists have generously donated wonderful artwork to decorate our youth-built boomboxes. </h4>
 
 <!-- ------------ SINGLES CONTAINER  ----------------- -->
-<mt-container mt-records="artists-recs" mt-template="artist" class="art-items"></mt-container>			
+<mt-container mt-records="artists-recs" mt-template="artist" class="items"></mt-container>			
 
 <!-------------- TEMPLATES ------------------>
 <mt-templates>
 	<template id="artist">
-		<span class="art-item">
-			<button type="button" data-a11y-dialog-show="boom-dialog" class="artist-dialog-button" aria-label="Click to learn more about {{NAME}}">
+		<span class="item">
+			<button type="button" data-a11y-dialog-show="boom-dialog" class="items-dialog-button" aria-label="Click to learn more about {{NAME}}">
 				<div class="img-clip">
-					<img loading="lazy" onmouseenter="this.style.animation='idle'" src="/data/uploads/photos/people/artists/{{IMG}}" alt="">
+					<img loading="lazy" onmouseenter="this.style.animation='idle'" src="/data/uploads/photos/people/artists/{{IMG}}" alt="Photo of {{NAME}}">
 				</div>
 				<div class="caption">{{NAME}}</div>
 
+				<!-- When a user triggers the display of the dialog, the dynamic content below is cloned and inserted into .dialog-inner-content. -->
 				<div class="dialog-dynamic-content">
-					<div class="artist-dialog">
-						<div class="artist-dialog__bg" style="background-image: url({{ART_IMAGE}})">
-							<div class="img-clip artist-dialog__photo">
-								<img src="/data/uploads/photos/people/artists/{{IMG}}" />
+					<div class="items-dialog">
+						<div class="items-dialog_bg" style="background-image: url({{POP_BG}})">
+							<!-- The outer .img-clip div is needed in order to resize the image and maintain the aspect ratio. -->
+							<div class="img-clip items-dialog_photo">
+								<img src="/data/uploads/photos/people/artists/{{IMG}}" alt="Photo of {{NAME}}"/>
 							</div>
 						</div>
-						<h1 class="artist-dialog__name" id="dialog-title">{{NAME}}</h1>
-						<p class="artist-dialog__link"><a href="{{LINK}}">{{LINK}}</a></p>
-						<p class="artist-dialog__bio">{{BIO}}</p>
+						<h1 class="items-dialog_name" id="dialog-title">{{NAME}}</h1>
+						<p class="items-dialog_link"><a href="{{LINK}}">{{LINK}}</a></p>
+						<p class="items-dialog_body">{{BODY}}</p>
 					</div>
 				</div>
 			</button>
@@ -36,14 +38,13 @@
 
 <!-------------- RECORDS ------------------>
 <mt-recordsets hidden>
-
 	<!-- SCHEMA -->
 	<mt-fields id="artist-fields">
 		NAME
 		IMG
 		LINK
-		ART_IMAGE
-		BIO
+		POP_BG
+		BODY
 	</mt-fields>
 
 	<!-- RECORDSET -->
@@ -115,20 +116,7 @@
 		https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600
 		This is the bio text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a, possimus provident doloremque molestias odio magni accusantium temporibus autem corporis, architecto quaerat recusandae odit eos hic suscipit excepturi ullam ex.
 	</mt-records>
-
 </mt-recordsets>
 
-<div class="dialog-container" id="boom-dialog" aria-hidden="true" aria-labelledby="dialog-title">
-	<div class="dialog-overlay" data-a11y-dialog-hide></div>
-	<div class="dialog-content" role="document">
-		<button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">
-			<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" overflow="visible" stroke="black" stroke-width="10" stroke-linecap="round">
-				<line x2="50" y2="50" />
-				<line x1="50" y2="50" />
-			</svg>
-		</button>
-		<div class="dialog-inner-content"></div>
-	</div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/a11y-dialog@8/dist/a11y-dialog.min.js"></script>
+<!-- The following script powers the image grid dialog. The script itself loads another external plugin which defines the A11yDialog class. It then uses a small bit of custom JS to populate the dialog with content each time it is shown. -->
 <script src="/theme/Spectral/assets/js/dialogs-dev.js"></script>
