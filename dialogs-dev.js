@@ -43,11 +43,17 @@ function initializeDialog() {
     const target = event.detail.target;
     const opener = target.closest("[data-a11y-dialog-show]");
     const dynamicContent = opener.querySelector(".dialog-dynamic-content");
-    const dialogContent = element.querySelector(".dialog-content");
+	const dialogContent = element.querySelector(".dialog-content");
     const dialogInnerContent = element.querySelector(".dialog-inner-content");
 
-    dialogContent.style.backgroundImage=`url(${dynamicContent.dataset.bg})`;
-    dialogInnerContent.innerHTML = dynamicContent.innerHTML;
+    // Build the background image url. We have to do it this very odd way because for some reason
+    // using a simple template literal was causing a server error on save.
+    const bgImage = dynamicContent.dataset.bg;
+    const url = "url(";
+    const bgImageUrl = url.concat(bgImage,")");
+
+    dialogContent.style.backgroundImage = bgImageUrl;
+	dialogInnerContent.innerHTML = dynamicContent.innerHTML;
   });
 }
 
