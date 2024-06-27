@@ -43,9 +43,11 @@ function initializeDialog() {
     const target = event.detail.target;
     const opener = target.closest("[data-a11y-dialog-show]");
     const dynamicContent = opener.querySelector(".dialog-dynamic-content");
-    const dialogContent = element.querySelector(".dialog-inner-content");
+    const dialogContent = element.querySelector(".dialog-content");
+    const dialogInnerContent = element.querySelector(".dialog-inner-content");
 
-    dialogContent.innerHTML = dynamicContent.innerHTML;
+    dialogContent.style.backgroundImage=`url(${dynamicContent.dataset.bg})`;
+    dialogInnerContent.innerHTML = dynamicContent.innerHTML;
   });
 }
 

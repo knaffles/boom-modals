@@ -18,17 +18,19 @@
 				<div class="caption">{{NAME}}</div>
 
 				<!-- When a user triggers the display of the dialog, the dynamic content below is cloned and inserted into .dialog-inner-content. -->
-				<div class="dialog-dynamic-content">
+				<div class="dialog-dynamic-content" data-bg="{{POP_BG}}">
 					<div class="items-dialog">
-						<div class="items-dialog_bg" style="background-image: url({{POP_BG}})">
+						<div class="items-dialog_bg">
 							<!-- The outer .img-clip div is needed in order to resize the image and maintain the aspect ratio. -->
 							<div class="img-clip items-dialog_photo">
 								<img src="/data/uploads/photos/people/artists/{{IMG}}" alt="Photo of {{NAME}}"/>
 							</div>
 						</div>
-						<h1 class="items-dialog_name" id="dialog-title">{{NAME}}</h1>
-						<p class="items-dialog_link"><a href="{{LINK}}">{{LINK}}</a></p>
-						<p class="items-dialog_body">{{BODY}}</p>
+						<div class="items-dialog_text">
+							<h1 class="items-dialog_name" id="dialog-title">{{NAME}}</h1>
+							<p class="items-dialog_link"><a href="{{LINK}}">{{LINK}}</a></p>
+							<p class="items-dialog_body">{{BODY}}</p>
+						</div>
 					</div>
 				</div>
 			</button>
